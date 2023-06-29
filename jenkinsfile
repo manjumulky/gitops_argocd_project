@@ -1,6 +1,13 @@
 pipeline{
 
     agent any 
+    envirnment{
+        DOCKERHUB_USERNAME = "manjumulky"
+            APP_NAME= "gitops-orgo-app"
+            IMAGE_TAG = "$(BUILD_NUMBER)"
+            IMAGE_NAME = "${DOCKER_USERNAME}" + "/" + "${APP_NAME}"
+            REGISTRY_CREDS = 'dockerhub'
+    }
 
     stages{
 
@@ -13,5 +20,34 @@ pipeline{
                }
            }
         }
+        stage('Checkout SCM'){
+            steps{
+                script{
+                git credentialId: 'github'
+                url: 'https://github.com/manjumulky/gitops_agrocd_project.git'
+                branch: 'main'
+                }
+            }
+        }
+        stage('Build dockerImage'){
+            steps{
+                scripts{
+                    docker_image=docker.build"${IMAGE_NAME}"
+                }
+            }
+        }
+        stage('Push Docker Image'){
+            steps{
+                script{
+                    docker.withRegistry('',REGISTRY_CREDS){
+                        docker_image.push("$BUILD_NUMBER")
+                        docker_image.push('latest')
+                    }
+                }
+            }
+        }
     }
 }
+
+
+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
