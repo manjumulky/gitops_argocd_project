@@ -23,15 +23,15 @@ pipeline{
         stage('Checkout SCM'){
             steps{
                 script{
-                git credentialId: 'github'
-                url: 'https://github.com/manjumulky/gitops_argocd_project.git'
-                branch: 'main'
+                    git credentialsId: 'github',
+                    url: 'https://github.com/manjumulky/gitops_argocd_project.git'
+                    branch: 'main'
                 }
             }
         }
         stage('Build dockerImage'){
             steps{
-                scripts{
+                script{
                     docker_image = docker.build"${IMAGE_NAME}"
                 }
             }
