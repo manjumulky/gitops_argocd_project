@@ -24,7 +24,7 @@ pipeline{
             steps{
                 script{
                 git credentialId: 'github'
-                url: 'https://github.com/manjumulky/gitops_agrocd_project.git'
+                url: 'https://github.com/manjumulky/gitops_argocd_project.git'
                 branch: 'main'
                 }
             }
