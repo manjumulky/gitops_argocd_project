@@ -32,7 +32,7 @@ pipeline{
         stage('Build dockerImage'){
             steps{
                 scripts{
-                    docker_image=docker.build"${IMAGE_NAME}"
+                    docker_image = docker.build"${IMAGE_NAME}"
                 }
             }
         }
@@ -50,4 +50,3 @@ pipeline{
 }
 
 
-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
