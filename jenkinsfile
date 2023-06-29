@@ -1,9 +1,9 @@
 pipeline{
 
     agent any 
-    envirnment{
+    environment{
         DOCKERHUB_USERNAME = "manjumulky"
-            APP_NAME= "gitops-orgo-app"
+            APP_NAME = "gitops-orgo-app"
             IMAGE_TAG = "$(BUILD_NUMBER)"
             IMAGE_NAME = "${DOCKER_USERNAME}" + "/" + "${APP_NAME}"
             REGISTRY_CREDS = 'dockerhub'
