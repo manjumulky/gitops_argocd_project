@@ -1,6 +1,7 @@
 pipeline{
 
     agent any 
+    
     environment{
         DOCKERHUB_USERNAME = "manjumulky"
             APP_NAME = "gitops-orgo-app"
