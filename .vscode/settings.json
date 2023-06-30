@@ -3,7 +3,7 @@
         "git-opsargocd-ci": {
             "isDefault": true,
             "runWith": "jenkins-master",
-            "name": "git-opsargocd-ci",
+            "name": "git-opsargocd-ci"
             
         }
     },
@@ -12,7 +12,7 @@
             "url": "http://13.126.106.209:8080",
             "user": "admin",
             "password": "victor150486",
-            "useCrumbIssuer": true,
+            "useCrumbIssuer": true,  
         }    
     }
 
