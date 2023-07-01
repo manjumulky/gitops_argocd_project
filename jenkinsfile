@@ -41,6 +41,7 @@ pipeline{
             steps{
               script{
                 docker.withRegistry('',REGISTRY_CREDS){
+                    docker tag docker_image:REGISTRY_CREDS:IMAGE_TAG 
                     docker_image.push("$BUILD_NUMBER")
                     docker_image.push('latest')
                 }    
